@@ -97,13 +97,19 @@ function writePassword() {
   let letters = false;
 
   //! Prompt for Password Length
-  let passwordLength = prompt(
-    "How long do you want your password?" +
-      "\n" +
-      "!!! Please note that your password length must be between 8 and 128 characters long !!! "
+  let passwordLength = parseInt(
+    prompt(
+      "How long do you want your password?" +
+        "\n" +
+        "!!! Please note that your password length must be between 8 and 128 characters long !!! "
+    )
   );
+  if (isNaN(passwordLength)) {
+    alert("Sorry, the password must be a number!");
+    return 0;
+  }
   if (passwordLength < 7 || passwordLength > 128) {
-    alert("PASSWORD MUST BE BETWEEN 8 AND 128 CHARACTERS LONG");
+    alert("Password must be between 8 and 128 characters long!");
     return 0;
   }
   //! Prompt for Letters in Password
